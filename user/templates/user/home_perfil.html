@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/fonts/line-icons.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet"  type="text/css" href="{% static 'css/carousel/css/owl.carousel.min.css' %}">
+        <link rel="stylesheet"  type="text/css" href="{% static 'css/carousel/css/owl.theme.css' %}">
+        <title>Photogood - {{ wanted_user.username }}</title>
+    </head>
+    
+    <body>
+      
+     <style>
+       u {
+         margin-bottom: 0;
+       }
+       ul li {
+         display: inline-block;
+       }
+     </style> 
+
+    <header>
+        <div class="collapse bg-dark" id="navbarHeader">
+            <div class="container">
+                <div class="row">
+                <div class="col-sm-8 col-md-7 py-4">
+                    <h4 class="text-muted">Bio</h4>
+                    <p class="text-white">{{ wanted_user.bio }}</p>
+                </div>
+                <div class="col-sm-4 offset-md-1 py-4">
+                    <h4 class="text-muted">Contato</h4>
+                    <ul class="list-unstyled">
+                    {% if wanted_user.facebook %}
+                    <li><a href="{{ wanted_user.facebook }}" target="_blank"><i class="lni-facebook-filled" aria-hidden="true"></i></a></li>
+                    {% endif %}
+                    {% if wanted_user.instagram %}
+                    <li><a href="{{ wanted_user.instagram }}" target="_blank"><i class="lni-instagram-filled" aria-hidden="true"></i></a></li>
+                    {% endif %}
+                    {% if wanted_user.twitter %}
+                    <li><a href="{{ wanted_user.twitter }}" target="_blank"><i class="lni-twitter-filled" aria-hidden="true"></i></a></li>
+                    {% endif %}
+                    </ul>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="navbar navbar-dark bg-dark box-shadow">
+            <div class="container d-flex justify-content-between">
+                <a href="{% url 'index' %}" class="navbar-brand d-flex align-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                <strong>Photogood </strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                {% if user.is_anonymous %}
+                <ul>
+                <li><a href="{% url 'login' %}" class="btn btn-primary">Login</a></li>
+                <li><a href="{% url 'cadastro' %}" class="btn btn-info">Cadastre-se</a></li>
+                {% endif %}
+                </ul>
+            </div>
+        </div>
+    </header> 
+      
+      
+         
+  <main role="main">     
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Seu Album</h1>
+        <p class="lead text-muted">Registre suas melhores fotos, arquive aqui e guarde na memória cada momento vivido e sentido!</p>
+        <p>
+        </p>
+      </div>
+    </section>
+    
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <div class="row">
+          
+          {% for photo in wanted_user.photo_set.all %}
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img src="{{ photo.photo_url.thumb.url }}" class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="{{ photo.photo_user }}">
+              <div class="card-body">
+                <p class="card-text">{{ photo.description }}</p>
+                <small class="text-muted">Postado em: {{ photo.created_at }}</small>
+              </div>
+            </div>
+          </div>
+          {% endfor %}                
+        
+        </div>
+      </div>
+    </div>
+  </main>
+
+    {% include '_footer.html' %}
+
+          <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+          <script src="{% static 'css/bootstrap/js/bootstrap.min.js' %}"></script>
+          <script  src="{% static 'css/carousel/js/owl.carousel.min.js' %}"></script>
+    </body>
+</html>
+    

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Photogood - Adicionar Foto{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'photo/css/cadastro.css' %}">    
+    <br>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card card-body">
+                <a href="{% url 'index' %}" class="btn btn-warning">&#8592; Voltar a página inicial</a>
+                <hr>
+                <h3>{{ user.get_full_name }}</h3>
+                <hr>
+                <img src="{{photo.photo_url.url}}" alt="" class="profile-pic">
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="card card-body">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    <button class="btn btn-primary" type="submit" name="photo-add">Atualizar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

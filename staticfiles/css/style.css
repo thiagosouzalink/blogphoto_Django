@@ -1,0 +1,46 @@
+:root {
+    --jumbotron-padding-y: 3rem;
+  }
+
+  .list-unstyled li {
+    display: inline-block;
+  }
+
+  .jumbotron {
+    padding-top: var(--jumbotron-padding-y);
+    padding-bottom: var(--jumbotron-padding-y);
+    margin-bottom: 0;
+    background-color: #fff;
+  }
+  @media (min-width: 768px) {
+    .jumbotron {
+      padding-top: calc(var(--jumbotron-padding-y) * 2);
+      padding-bottom: calc(var(--jumbotron-padding-y) * 2);
+    }
+  }
+  
+  .jumbotron p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .jumbotron-heading {
+    font-weight: 300;
+  }
+  
+  .jumbotron .container {
+    max-width: 40rem;
+  }
+  
+  #sticky-footer {
+    bottom: 0;
+    left: 0;
+    height: 30px;
+    position: fixed;
+    width: 100%;
+  }
+
+#sticky-footer small {
+    margin-top: 0;
+}
+
+

@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/fonts/line-icons.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet"  type="text/css" href="{% static 'css/carousel/css/owl.carousel.min.css' %}">
+        <link rel="stylesheet"  type="text/css" href="{% static 'css/carousel/css/owl.theme.css' %}">
+        <title>Photogood - Error 404</title>
+    </head>
+
+    <body>
+        <header>
+            <div class="navbar navbar-dark bg-dark box-shadow">
+                <div class="container d-flex justify-content-between">
+                    <a href="{% url 'index' %}" class="navbar-brand d-flex align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                    <strong>Photogood </strong>
+                    </a>
+                </div>
+            </div>
+        </header> 
+        
+        <main role="main">
+            <div class="container justify-content-center">  
+            <div class="jumbotron">
+                <h1 class="display-4">Page Not Found</h1>
+                <p class="lead">Desculpe, esta página não está acessível ou não existe.</p>
+                <hr class="my-4">
+                <a class="btn btn-primary btn-lg" href="{% url 'index' %}" role="button">Voltar Para Página Inicial</a>
+              </div>
+            </div>   
+        </main>
+   
+        {% include '_footer.html' %}
+   
+             <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+             <script src="{% static 'css/bootstrap/js/bootstrap.min.js' %}"></script>
+             <script  src="{% static 'css/carousel/js/owl.carousel.min.js' %}"></script>
+    </body>
+</html>

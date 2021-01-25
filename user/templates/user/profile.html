@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Photogood - Perfil{% endblock %}
+
+{% block content %}
+    <style>
+        #titulo-profile {
+            text-align: center;
+        
+        }
+        #row-principal {
+            margin-bottom: 7%;
+        }
+    </style>
+    <div class="container">
+      <div id="row-principal" class="row mt-2 pl-2 pr-2">
+
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 id="titulo-profile" style="text-align: center;">Perfil</h4>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form method="POST">
+                                {% csrf_token %}
+                                 {{form|crispy}}
+                                 <button class="btn btn-success" type="submit" name="profile-atualizar">Atualizar</button> 
+                            </form>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+body {
+    background-image: url('../../image/blog.jpg');
+}
+
+.main-cadastro {
+    font-family: "Lato", sans-serif;
+    height: 700px;
+    padding: 1% 10%;
+}
+
+.main-cadastro form {
+    margin: 0 auto;
+    margin-top: 0;
+    margin-bottom: 5%;
+    /* background: rgba(52,58,64,0.8) !important; */
+    background: rgba(247, 248, 248, 0.8) !important;
+    padding: 2% 1% 3% 2%;
+    border-radius: 2%;
+    width: 50%;
+}
+
+.main-cadastro form label {
+    font-weight: bold;
+    /* color: white; */
+    color: rgb(51, 51, 51);
+}
+
+.main-cadastro form input {
+    color: rgb(51, 51, 51);
+}
+

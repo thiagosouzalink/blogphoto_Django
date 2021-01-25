@@ -1,0 +1,15 @@
+.profile-pic {
+    max-width: 200px;
+    max-height:200px;
+    margin: 0 auto;
+    /* border-radius: 50%; */
+}
+
+.row {
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+h3 {
+    text-align: center;
+}   
